@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "graph.h"
+#include "Allegro.h"
 
 int main()
 {
@@ -20,11 +21,34 @@ int main()
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
     {
-        /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+        int choix=0;
+        choix = Menu();
+        if(choix=1)
+        {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
+        }
+
+         if(choix=2)
+        {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+        g.update();
+
+        /// Mise à jour générale (clavier/souris/buffer etc...)
+        grman::mettre_a_jour();
+        }
+
+         if(choix=3)
+        {
+            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+        g.update();
+
+        /// Mise à jour générale (clavier/souris/buffer etc...)
+        grman::mettre_a_jour();
+        }
     }
 
     grman::fermer_allegro();
