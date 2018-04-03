@@ -4,7 +4,7 @@
                     VERTEX
 ****************************************************/
 
-/// Le constructeur met en place les éléments de l'interface
+/// Le constructeur met en place les ï¿½lï¿½ments de l'interface
 VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, int pic_idx)
 {
     // La boite englobante
@@ -12,9 +12,9 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
     m_top_box.set_dim(130, 100);
     m_top_box.set_moveable();
 
-    // Le slider de réglage de valeur
+    // Le slider de rï¿½glage de valeur
     m_top_box.add_child( m_slider_value );
-    m_slider_value.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_value.set_range(0.0 , 100.0); // Valeurs arbitraires, ï¿½ adapter...
     m_slider_value.set_dim(20,80);
     m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 
@@ -42,27 +42,27 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
 }
 
 
-/// Gestion du Vertex avant l'appel à l'interface
+/// Gestion du Vertex avant l'appel ï¿½ l'interface
 void Vertex::pre_update()
 {
     if (!m_interface)
         return;
 
-    /// Copier la valeur locale de la donnée m_value vers le slider associé
+    /// Copier la valeur locale de la donnï¿½e m_value vers le slider associï¿½
     m_interface->m_slider_value.set_value(m_value);
 
-    /// Copier la valeur locale de la donnée m_value vers le label sous le slider
+    /// Copier la valeur locale de la donnï¿½e m_value vers le label sous le slider
     m_interface->m_label_value.set_message( std::to_string( (int)m_value) );
 }
 
 
-/// Gestion du Vertex après l'appel à l'interface
+/// Gestion du Vertex aprï¿½s l'appel ï¿½ l'interface
 void Vertex::post_update()
 {
     if (!m_interface)
         return;
 
-    /// Reprendre la valeur du slider dans la donnée m_value locale
+    /// Reprendre la valeur du slider dans la donnï¿½e m_value locale
     m_value = m_interface->m_slider_value.get_value();
 }
 
@@ -72,7 +72,7 @@ void Vertex::post_update()
                     EDGE
 ****************************************************/
 
-/// Le constructeur met en place les éléments de l'interface
+/// Le constructeur met en place les ï¿½lï¿½ments de l'interface
 EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 {
     // Le WidgetEdge de l'interface de l'arc
@@ -85,14 +85,14 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
     m_top_edge.attach_to(to.m_interface->m_top_box);
     m_top_edge.reset_arrow_with_bullet();
 
-    // Une boite pour englober les widgets de réglage associés
+    // Une boite pour englober les widgets de rï¿½glage associï¿½s
     m_top_edge.add_child(m_box_edge);
     m_box_edge.set_dim(24,60);
     m_box_edge.set_bg_color(BLANCBLEU);
 
-    // Le slider de réglage de valeur
+    // Le slider de rï¿½glage de valeur
     m_box_edge.add_child( m_slider_weight );
-    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, ï¿½ adapter...
     m_slider_weight.set_dim(16,40);
     m_slider_weight.set_gravity_y(grman::GravityY::Up);
 
@@ -103,26 +103,26 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 }
 
 
-/// Gestion du Edge avant l'appel à l'interface
+/// Gestion du Edge avant l'appel ï¿½ l'interface
 void Edge::pre_update()
 {
     if (!m_interface)
         return;
 
-    /// Copier la valeur locale de la donnée m_weight vers le slider associé
+    /// Copier la valeur locale de la donnï¿½e m_weight vers le slider associï¿½
     m_interface->m_slider_weight.set_value(m_weight);
 
-    /// Copier la valeur locale de la donnée m_weight vers le label sous le slider
+    /// Copier la valeur locale de la donnï¿½e m_weight vers le label sous le slider
     m_interface->m_label_weight.set_message( std::to_string( (int)m_weight ) );
 }
 
-/// Gestion du Edge après l'appel à l'interface
+/// Gestion du Edge aprï¿½s l'appel ï¿½ l'interface
 void Edge::post_update()
 {
     if (!m_interface)
         return;
 
-    /// Reprendre la valeur du slider dans la donnée m_weight locale
+    /// Reprendre la valeur du slider dans la donnï¿½e m_weight locale
     m_weight = m_interface->m_slider_weight.get_value();
 }
 
@@ -132,8 +132,8 @@ void Edge::post_update()
                     GRAPH
 ****************************************************/
 
-/// Ici le constructeur se contente de préparer un cadre d'accueil des
-/// éléments qui seront ensuite ajoutés lors de la mise ne place du Graphe
+/// Ici le constructeur se contente de prï¿½parer un cadre d'accueil des
+/// ï¿½lï¿½ments qui seront ensuite ajoutï¿½s lors de la mise ne place du Graphe
 GraphInterface::GraphInterface(int x, int y, int w, int h)
 {
     m_top_box.set_dim(1000,740);
@@ -151,18 +151,48 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 }
 
 
-/// Méthode spéciale qui construit un graphe arbitraire (démo)
-/// Cette méthode est à enlever et remplacer par un système
+/// Mï¿½thode spï¿½ciale qui construit un graphe arbitraire (dï¿½mo)
+/// Cette mï¿½thode est ï¿½ enlever et remplacer par un systï¿½me
 /// de chargement de fichiers par exemple.
-/// Bien sûr on ne veut pas que vos graphes soient construits
-/// "à la main" dans le code comme ça.
-void Graph::make_example()
+/// Bien sï¿½r on ne veut pas que vos graphes soient construits
+/// "ï¿½ la main" dans le code comme ï¿½a.
+void Graph::load(std::string fic)
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
-    // La ligne précédente est en gros équivalente à :
+    // La ligne prï¿½cï¿½dente est en gros ï¿½quivalente ï¿½ :
     // m_interface = new GraphInterface(50, 0, 750, 600);
+    std::ifstream fichier(fic, std::ios::in);
+    int nb;
+    int indice, poids, x, y, s1, s2;
+    std::string img;
+    if(fichier)
+    {
+        fichier >> nb;
+        nb_sommets = nb;
+        for(int i = 0; i < nb; i++)
+        {
+            fichier >> indice;
+            fichier >> poids;
+            fichier >> x;
+            fichier >> y;
+            fichier.ignore();
+            getline(fichier, img, '\n');
+            add_interfaced_vertex(indice,poids, x, y, img);
+        }
+        fichier >> nb;
+        nb_arretes = nb;
+        for(int i = 0; i < nb; i++)
+        {
+            fichier >> indice;
+            fichier >> s1;
+            fichier >> s2;
+            fichier >> poids;
+            add_interfaced_edge(indice, s1, s2, poids);
+        }
+        fichier.close();
+    }
 
-    /// Les sommets doivent être définis avant les arcs
+    /*/// Les sommets doivent ï¿½tre dï¿½finis avant les arcs
     // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
     add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
     add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
@@ -173,7 +203,7 @@ void Graph::make_example()
     add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
     add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);
 
-    /// Les arcs doivent être définis entre des sommets qui existent !
+    /// Les arcs doivent ï¿½tre dï¿½finis entre des sommets qui existent !
     // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
     add_interfaced_edge(0, 1, 2, 50.0);
     add_interfaced_edge(1, 0, 1, 50.0);
@@ -184,10 +214,36 @@ void Graph::make_example()
     add_interfaced_edge(6, 3, 4, 0.0);
     add_interfaced_edge(7, 2, 0, 100.0);
     add_interfaced_edge(8, 5, 2, 20.0);
-    add_interfaced_edge(9, 3, 7, 80.0);
+    add_interfaced_edge(9, 3, 7, 80.0);*/
 }
 
-/// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
+void Graph::save(std::string fic)
+{
+    std::ofstream fichier(fic, ios::trunc);
+    if(fichier)
+    {
+        fichier << nb_sommets << std::endl;
+        for(auto elem : m_vertrices)
+        {
+            fichier << elem.first << " ";
+            fichier << elem.second.m_value << " ";
+            ficier << elem.second.m_interface->m_top_box.get_posx() << " ";
+            ficier << elem.second.m_interface->m_top_box.get_posy() << std::endl;
+            fichier << elem.second.m_nom << std::endl;
+        }
+        fichier << nb_arretes<< std::endl;
+        for(auto elem : m_edge)
+        {
+            fichier << elem.first << " ";
+            fichier << elem.second.m_from << " ";
+            fichier << elem.second.m_to << " ";
+            fichier << elem.second.m_weighht << std::endl;
+        }
+        fichier.close();
+    }
+}
+
+/// La mï¿½thode update ï¿½ appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {
     if (!m_interface)
@@ -209,7 +265,7 @@ void Graph::update()
 
 }
 
-/// Aide à l'ajout de sommets interfacés
+/// Aide ï¿½ l'ajout de sommets interfacï¿½s
 void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name, int pic_idx )
 {
     if ( m_vertices.find(idx)!=m_vertices.end() )
@@ -217,15 +273,16 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
         std::cerr << "Error adding vertex at idx=" << idx << " already used..." << std::endl;
         throw "Error adding vertex";
     }
-    // Création d'une interface de sommet
+    // Crï¿½ation d'une interface de sommet
     VertexInterface *vi = new VertexInterface(idx, x, y, pic_name, pic_idx);
     // Ajout de la top box de l'interface de sommet
     m_interface->m_main_box.add_child(vi->m_top_box);
     // On peut ajouter directement des vertices dans la map avec la notation crochet :
     m_vertices[idx] = Vertex(value, vi);
+    m_vertices[idx] = pic_name;
 }
 
-/// Aide à l'ajout d'arcs interfacés
+/// Aide ï¿½ l'ajout d'arcs interfacï¿½s
 void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weight)
 {
     if ( m_edges.find(idx)!=m_edges.end() )
@@ -243,7 +300,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
-    ///m_interface->m_main_box.get_posx();
-
+    m_edges[idx].m_from = id_vert1;
+    m_edges[idx].m_to = id_vert2;
 }
 
