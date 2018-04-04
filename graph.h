@@ -138,14 +138,9 @@ class Vertex
     private :
         /// liste des indices des arcs arrivant au sommet : acc�s aux pr�d�cesseurs
         std::vector<int> m_in;
-<<<<<<< Ilana
-
-        /// liste des indices des arcs partant du sommet : acc�s aux successeurs
-=======
         std::string m_nom;
         std::string m_img;
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
->>>>>>> Remise prec.
         std::vector<int> m_out;
 
         /// un exemple de donn�e associ�e � l'arc, on peut en ajouter d'autres...
@@ -168,12 +163,8 @@ class Vertex
         Vertex (double value=0, VertexInterface *interface=nullptr) :
             m_value(value), m_interface(interface)  {  }
 
-<<<<<<< Ilana
-        /// Vertex �tant g�r� par Graph ce sera la m�thode update de graph qui appellera
-=======
 
         /// Vertex �tant g�r� par Graph ce sera la m�thode update de graph qui appellera
->>>>>>> Remise prec.
         /// le pre_update et post_update de Vertex (pas directement la boucle de jeu)
         /// Voir l'impl�mentation Graph::update dans le .cpp
         void pre_update();
@@ -240,12 +231,8 @@ class Edge
         /// un exemple de donn�e associ�e � l'arc, on peut en ajouter d'autres...
         double m_weight;
 
-<<<<<<< Ilana
-        /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
-=======
         bool m_present = true;
         /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
->>>>>>> Remise prec.
         std::shared_ptr<EdgeInterface> m_interface = nullptr;
 
 
@@ -320,26 +307,15 @@ class GraphInterface
 class Graph
 {
     private :
-<<<<<<< Ilana
-
-        /// La "liste" des ar�tes
-=======
         std::string m_nom;
         /// La "liste" des ar�tes
->>>>>>> Remise prec.
         std::map<int, Edge> m_edges;
         std::map<int, Edge> m_edges_mem;
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
         std::map<int, Vertex> m_vertices_mem;
 
-<<<<<<< Ilana
-        int nb_sommets;
-        int nb_arretes;
         /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
-=======
-        /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
->>>>>>> Remise prec.
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
         int nb_sommet;
