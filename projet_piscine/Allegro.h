@@ -1,0 +1,6 @@
+#ifndef ALLEGRO_H_INCLUDED
+#define ALLEGRO_H_INCLUDED
+
+
+
+#endif // ALLEGRO_H_INCLUDED
