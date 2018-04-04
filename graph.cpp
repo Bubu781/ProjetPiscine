@@ -142,7 +142,7 @@ void Edge::post_update()
 
 /// Ici le constructeur se contente de pr�parer un cadre d'accueil des
 /// �l�ments qui seront ensuite ajout�s lors de la mise ne place du Graphe
-GraphInterface::GraphInterface(int x, int y, int w, int h)
+GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
 {
     m_top_box.set_dim(1000,740);
     m_top_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
@@ -156,6 +156,22 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
+
+
+        if(nom == "fichier1.txt")
+        {
+            m_main_box.add_child( m_fond );
+            m_fond.set_pic_name("ocean.jpg");
+            m_fond.set_pic_idx(0);
+            m_fond.set_gravity_x(grman::GravityX::Right);
+        }
+        else if(nom =="fichier2.txt")
+        {
+            m_main_box.add_child( m_fond );
+            m_fond.set_pic_name("forest.png");
+            m_fond.set_pic_idx(0);
+            m_fond.set_gravity_x(grman::GravityX::Right);
+        }
 
     m_tool_box.add_child(m_quit);
     m_quit.set_dim(75,30);
@@ -171,6 +187,11 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_save.set_dim(75,30);
     m_save.set_pos(1,615);
     m_save.set_bg_color(VERT);
+
+    m_tool_box.add_child(m_disconnect);
+    m_disconnect.set_dim(75,30);
+    m_disconnect.set_pos(1,580);
+    m_disconnect.set_bg_color(MARRON);
 
     m_tool_box.add_child(m_txt_quit);
     m_txt_quit.set_dim(75,10);
@@ -189,6 +210,12 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_txt_save.set_pos(1,630);
     m_txt_save.set_message("Sauvegarde");
     m_txt_save.set_color(BLANC);
+
+    m_tool_box.add_child(m_txt_disconnect);
+    m_txt_disconnect.set_dim(75,10);
+    m_txt_disconnect.set_pos(1,595);
+    m_txt_disconnect.set_message("Connexite");
+    m_txt_disconnect.set_color(BLANC);
 }
 
 
@@ -200,7 +227,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 void Graph::load(std::string fic)
 {
     std::ifstream fichier(fic, std::ios::in);
-    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
+    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600, fic);
     int indice, x, y, s1, s2, nb;
     double poids;
     bool presence;
@@ -219,7 +246,7 @@ void Graph::load(std::string fic)
             fichier >> presence;
             fichier.ignore();
             getline(fichier, img, '\n');
-            add_interfaced_vertex(indice, poids, x, y, img, presence);
+            add_interfaced_vertex(indice, poids, x, y, img, presence, 1);
         }
         fichier >> nb;
         nb_arretes = nb;
@@ -327,7 +354,51 @@ void Graph::update()
         exit(0);
     if(m_interface->m_return.clicked())
         m_used = false;
+    if(m_interface->m_disconnect.clicked())
+        disconnect();
 
+}
+
+void Graph::disconnect()
+{
+    int imin = 200, i, refer;
+    for(auto sommets : m_vertices)
+    {
+        i = 0;
+        for(auto arretes : m_edges)
+        {
+            if(arretes.second.m_to == sommets.first)
+                {
+                    i++;
+                    for(auto arr : m_edges)
+                    {
+                        if(arr.second.m_from == arretes.second.m_from || arr.second.m_to == arretes.second.m_from)
+                            i++;
+                    }
+                }
+            else if(arretes.second.m_from == sommets.first )
+            {
+                i++;
+                for(auto arr : m_edges)
+                    {
+                        if(arr.second.m_from == arretes.second.m_to || arr.second.m_to == arretes.second.m_to)
+                            i++;
+                    }
+            }
+        }
+        if(i < imin && i != 0)
+        {
+            imin = i;
+            refer = sommets.first;
+        }
+    }
+    for(auto elem : m_edges)
+    {
+        if(elem.second.m_from == refer)
+            modification(elem.second.m_to);
+        else if(elem.second.m_to == refer)
+            modification(elem.second.m_from);
+    }
 }
 
 void Graph::modification(int i)
