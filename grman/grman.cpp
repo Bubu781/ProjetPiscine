@@ -270,7 +270,50 @@ void thick_line(BITMAP *bmp, int x1, int y1, int x2, int y2, int thickness, int 
             line(bmp, x1+i, y1, x2+i, y2, color);
 }
 
-
+int deplacement(int nb)
+{
+  /*  Console *pConsole;
+    int i=0;
+    int k = -1;
+    while(k != 13)
+    {
+        pConsole->gotoLigCol(1+i,0);
+        std::cout << " ";
+        k=pConsole->getInputKey();
+        switch(k)
+        {
+        case 224:
+            switch(k=pConsole->getInputKey())
+            {
+            case 'P':
+                if(i+1 < nb)
+                    i = i + 1;
+                break;
+            case 'H':
+                if(i-1 >= 0)
+                    i = i - 1;
+                break;
+            }
+            break;
+        case 'z':
+        case 'Z':
+        case '8':
+            if(i-1 >= 0)
+                i = i - 1;
+            break;
+        case 's':
+        case 'S':
+        case '5':
+        case '2':
+            if(i+1 < nb)
+                i = i + 1;
+            break;
+        default:
+            break;
+        }
+    }
+    return i+1;*/
+}
 } /// FIN DE NAMESPACE GRMAN
 
 
