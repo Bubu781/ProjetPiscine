@@ -87,6 +87,10 @@ class Widget
         void add_child(Widget &elt) { elt.set_parent(this); m_children.push_back(&elt); elt.reframe(); }
         void remove_child(Widget &elt) { m_children.erase( std::remove( m_children.begin(), m_children.end(), &elt ), m_children.end() ); }
         void reframe();
+<<<<<<< Ilana
+=======
+        void remove_all() {m_children.erase(m_children.begin(), m_children.end());}
+>>>>>>> Remise prec.
 
         /// Gestion géométrie
         void set_no_gravity()
@@ -223,6 +227,10 @@ class WidgetText : public Widget
         virtual void draw();
 
         void set_message(std::string message="");
+<<<<<<< Ilana
+=======
+        void set_color(int _color) { m_color = _color; }
+>>>>>>> Remise prec.
         std::string get_message() { return m_message; }
         void set_vertical(bool vertical=true) { m_vertical=vertical; set_message(m_message); } /// BRICOLAGE ...
 };
@@ -260,7 +268,10 @@ class WidgetButton : public Widget
         bool m_value = false;
 
     public :
+<<<<<<< Ilana
 
+=======
+>>>>>>> Remise prec.
         virtual void interact_focus();
         virtual bool captures_focus() { return true; }
 

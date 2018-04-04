@@ -1,3 +1,4 @@
+<<<<<<< Ilana
 #include "allegro.h"
 
 int Menu()
@@ -30,3 +31,6 @@ int Menu()
             exit(0);
     }
 }
+=======
+int Menu
+>>>>>>> Remise prec.

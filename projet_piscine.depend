@@ -1,27 +1,48 @@
 # depslib dependency file v1.0
+<<<<<<< Ilana
 1522749200 source:z:\desktop\projet_piscine\graph.cpp
 	"graph.h"
 
 1522656090 z:\desktop\projet_piscine\graph.h
+=======
+1522842698 source:z:\desktop\projet_piscine\graph.cpp
+	"graph.h"
+
+1522840280 z:\desktop\projet_piscine\graph.h
+	<fstream>
+>>>>>>> Remise prec.
 	<vector>
 	<map>
 	<string>
 	<memory>
 	"grman/grman.h"
 
+<<<<<<< Ilana
 1522539042 z:\desktop\projet_piscine\grman\grman.h
+=======
+1522777192 z:\desktop\projet_piscine\grman\grman.h
+>>>>>>> Remise prec.
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
 	"coords.h"
 	"widget.h"
 
+<<<<<<< Ilana
 1509222374 z:\desktop\projet_piscine\grman\grman_couleurs.h
 
 1522575426 z:\desktop\projet_piscine\grman\coords.h
 	<cmath>
 
 1522636618 z:\desktop\projet_piscine\grman\widget.h
+=======
+1522777192 z:\desktop\projet_piscine\grman\grman_couleurs.h
+
+1522777192 z:\desktop\projet_piscine\grman\coords.h
+	<cmath>
+
+1522843488 z:\desktop\projet_piscine\grman\widget.h
+>>>>>>> Remise prec.
 	"grman.h"
 	<iostream>
 	<string>
@@ -29,10 +50,17 @@
 	<algorithm>
 	<allegro.h>
 
+<<<<<<< Ilana
 1522575070 source:z:\desktop\projet_piscine\grman\coords.cpp
 	"coords.h"
 
 1522515824 source:z:\desktop\projet_piscine\grman\grman.cpp
+=======
+1522777192 source:z:\desktop\projet_piscine\grman\coords.cpp
+	"coords.h"
+
+1522777192 source:z:\desktop\projet_piscine\grman\grman.cpp
+>>>>>>> Remise prec.
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -46,37 +74,65 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
+<<<<<<< Ilana
 1522636920 source:z:\desktop\projet_piscine\grman\widget.cpp
 	"widget.h"
 
 1522749200 source:z:\desktop\projet_piscine\main.cpp
+=======
+1522786174 source:z:\desktop\projet_piscine\grman\widget.cpp
+	"widget.h"
+
+1522841368 source:z:\desktop\projet_piscine\main.cpp
+>>>>>>> Remise prec.
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
 
+<<<<<<< Ilana
 1522777171 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.cpp
 	"graph.h"
 
 1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.h
+=======
+1522842698 source:z:\desktop\projet_piscine (3)\projet_piscine\graph.cpp
+	"graph.h"
+
+1522840280 z:\desktop\projet_piscine (3)\projet_piscine\graph.h
+	<fstream>
+>>>>>>> Remise prec.
 	<vector>
 	<map>
 	<string>
 	<memory>
 	"grman/grman.h"
 
+<<<<<<< Ilana
 1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman.h
+=======
+1522777192 z:\desktop\projet_piscine (3)\projet_piscine\grman\grman.h
+>>>>>>> Remise prec.
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
 	"coords.h"
 	"widget.h"
 
+<<<<<<< Ilana
 1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman_couleurs.h
 
 1522781086 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\coords.h
 	<cmath>
 
 1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\widget.h
+=======
+1522777192 z:\desktop\projet_piscine (3)\projet_piscine\grman\grman_couleurs.h
+
+1522777192 z:\desktop\projet_piscine (3)\projet_piscine\grman\coords.h
+	<cmath>
+
+1522838294 z:\desktop\projet_piscine (3)\projet_piscine\grman\widget.h
+>>>>>>> Remise prec.
 	"grman.h"
 	<iostream>
 	<string>
@@ -84,10 +140,17 @@
 	<algorithm>
 	<allegro.h>
 
+<<<<<<< Ilana
 1522755048 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\coords.cpp
 	"coords.h"
 
 1522782295 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman.cpp
+=======
+1522777192 source:z:\desktop\projet_piscine (3)\projet_piscine\grman\coords.cpp
+	"coords.h"
+
+1522777192 source:z:\desktop\projet_piscine (3)\projet_piscine\grman\grman.cpp
+>>>>>>> Remise prec.
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -101,6 +164,7 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
+<<<<<<< Ilana
 1522755049 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\widget.cpp
 	"widget.h"
 
@@ -120,4 +184,13 @@
 	"reseaux.h"
 
 1522774945 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\reseaux.h
+=======
+1522786174 source:z:\desktop\projet_piscine (3)\projet_piscine\grman\widget.cpp
+	"widget.h"
+
+1522841368 source:z:\desktop\projet_piscine (3)\projet_piscine\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+>>>>>>> Remise prec.
 

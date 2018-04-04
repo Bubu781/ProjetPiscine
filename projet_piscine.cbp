@@ -34,6 +34,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Linker>
+<<<<<<< Ilana
 			<Add library="loadpng" />
 			<Add library="png16.dll" />
 			<Add library="jpgalleg" />
@@ -41,6 +42,10 @@
 		</Linker>
 		<Unit filename="Allegro.cpp" />
 		<Unit filename="Allegro.h" />
+=======
+			<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/liballeg44.dll.a" />
+		</Linker>
+>>>>>>> Remise prec.
 		<Unit filename="graph.cpp" />
 		<Unit filename="graph.h" />
 		<Unit filename="grman/coords.cpp" />
@@ -51,8 +56,11 @@
 		<Unit filename="grman/widget.cpp" />
 		<Unit filename="grman/widget.h" />
 		<Unit filename="main.cpp" />
+<<<<<<< Ilana
 		<Unit filename="reseaux.cpp" />
 		<Unit filename="reseaux.h" />
+=======
+>>>>>>> Remise prec.
 		<Extensions>
 			<code_completion />
 			<envvars />
