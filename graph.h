@@ -140,9 +140,10 @@ class Vertex
         std::vector<int> m_in;
         std::string m_nom;
         std::string m_img;
+        int m_idx;
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
         std::vector<int> m_out;
-
+        bool m_marqued;
         /// un exemple de donn�e associ�e � l'arc, on peut en ajouter d'autres...
         double m_value;
 
@@ -170,6 +171,10 @@ class Vertex
         void pre_update();
         void post_update();
 
+        void set_marqued(bool mark) { m_marqued = mark;}
+        bool get_marqued() {return m_marqued;}
+        void set_idx(int idx) {m_idx = idx;}
+        int get_idx() {return m_idx;}
         bool get_present(){ return m_present; }
         void set_present(bool setter)
                         { m_present = setter; }
@@ -227,7 +232,8 @@ class Edge
 
         /// indice du sommet d'arriv�e de l'arc
         int m_to;
-
+        int m_idx;
+        bool m_marqued;
         /// un exemple de donn�e associ�e � l'arc, on peut en ajouter d'autres...
         double m_weight;
 
@@ -249,6 +255,10 @@ class Edge
         void pre_update();
         void post_update();
 
+        void set_marqued(bool mark) { m_marqued = mark;}
+        bool get_marqued() {return m_marqued;}
+        void set_idx(int idx) {m_idx = idx;}
+        int get_idx() {return m_idx;}
         bool get_present(){ return m_present;}
         void set_present(bool setter)
                         { m_present = setter; }
@@ -297,6 +307,12 @@ class GraphInterface
         grman::WidgetButton m_disconnect;
         grman::WidgetText m_txt_disconnect;
 
+        grman::WidgetButton m_add_sommet;
+        grman::WidgetText m_txt_add_sommet;
+
+        grman::WidgetButton m_mod_edge;
+        grman::WidgetText m_txt_mod_edge;
+
         // A compl�ter �ventuellement par des widgets de d�coration ou
         // d'�dition (boutons ajouter/enlever ...)
 
@@ -312,12 +328,14 @@ class Graph
 {
     private :
         std::string m_nom;
+        std::vector<std::string> m_liste_animaux;
         /// La "liste" des ar�tes
         std::map<int, Edge> m_edges;
         std::map<int, Edge> m_edges_mem;
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
         std::map<int, Vertex> m_vertices_mem;
+        Vertex v;
 
         /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
@@ -344,7 +362,10 @@ class Graph
         void load(std::string fic);
         void save();
         void disconnect();
+        void ajout_sommet();
+        void modification_edges();
         void modification(int i);
+        void fort_connexe();
 
         bool get_used() {return m_used;}
         void set_used(bool _used) {m_used = _used;}
