@@ -1,66 +1,34 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-1522749200 source:z:\desktop\projet_piscine\graph.cpp
+21 8
+
+1522848133 source:z:\desktop\projet_piscine\graph.cpp
 	"graph.h"
 
-1522656090 z:\desktop\projet_piscine\graph.h
-=======
-1522845492 source:z:\desktop\projet_piscine\graph.cpp
-	"graph.h"
-
-1522846278 z:\desktop\projet_piscine\graph.h
+1522848100 z:\desktop\projet_piscine\graph.h
 	<fstream>
->>>>>>> Adrien
 	<vector>
 	<map>
 	<string>
 	<memory>
 	"grman/grman.h"
 
-<<<<<<< HEAD
-1522539042 z:\desktop\projet_piscine\grman\grman.h
-=======
-1522777192 z:\desktop\projet_piscine\grman\grman.h
->>>>>>> Adrien
+1522841368 ien
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
 	"coords.h"
 	"widget.h"
-
-<<<<<<< HEAD
-1509222374 z:\desktop\projet_piscine\grman\grman_couleurs.h
-
-1522575426 z:\desktop\projet_piscine\grman\coords.h
-	<cmath>
-
-1522636618 z:\desktop\projet_piscine\grman\widget.h
-=======
-1522777192 z:\desktop\projet_piscine\grman\grman_couleurs.h
-
-1522777192 z:\desktop\projet_piscine\grman\coords.h
-	<cmath>
-
-1522843488 z:\desktop\projet_piscine\grman\widget.h
->>>>>>> Adrien
 	"grman.h"
 	<iostream>
 	<string>
 	<vector>
 	<algorithm>
 	<allegro.h>
-
-<<<<<<< HEAD
-1522575070 source:z:\desktop\projet_piscine\grman\coords.cpp
-	"coords.h"
-
-1522515824 source:z:\desktop\projet_piscine\grman\grman.cpp
-=======
-1522777192 source:z:\desktop\projet_piscine\grman\coords.cpp
-	"coords.h"
-
-1522777192 source:z:\desktop\projet_piscine\grman\grman.cpp
->>>>>>> Adrien
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -73,20 +41,43 @@
 	<png.h>
 	<loadpng.h>
 	<jpgalleg.h>
-
-<<<<<<< HEAD
-1522636920 source:z:\desktop\projet_piscine\grman\widget.cpp
-	"widget.h"
-
-1522749200 source:z:\desktop\projet_piscine\main.cpp
-=======
-1522786174 source:z:\desktop\projet_piscine\grman\widget.cpp
-	"widget.h"
-
-1522845600 source:z:\desktop\projet_piscine\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
+
+1522777192 D
+
+1522777192 z:\desktop\projet_piscine\grman\grman.h
+
+1522777192 z:\desktop\projet_piscine\grman\grman_couleurs.h
+
+1522777192 z:\desktop\projet_piscine\grman\coords.h
+	<cmath>
+	<cmath>
+
+1522848154 z:\desktop\projet_piscine\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522777192 source:z:\desktop\projet_piscine\grman\coords.cpp
+	"coords.h"
+	"coords.h"
+
+1522777192 source:z:\desktop\projet_piscine\grman\grman.cpp
+
+1522786174 source:z:\desktop\projet_piscine\grman\widget.cpp
+	"widget.h"
+	"widget.h"
+
+1522848848 source:z:\desktop\projet_piscine\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Allegro.h"
 
 1522842698 source:z:\desktop\projet_piscine (3)\projet_piscine\graph.cpp
 	"graph.h"
@@ -140,10 +131,6 @@
 	"widget.h"
 
 1522841368 source:z:\desktop\projet_piscine (3)\projet_piscine\main.cpp
->>>>>>> Adrien
-	"grman/grman.h"
-	<iostream>
-	"graph.h"
 
 1522777171 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.cpp
 	"graph.h"
@@ -211,4 +198,15 @@
 	"reseaux.h"
 
 1522774945 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\reseaux.h
+
+1522848848 z:\desktop\projet_piscine\allegro.h
+	"grman/grman.h"
+
+1522848848 source:z:\desktop\projet_piscine\allegro.cpp
+	"allegro.h"
+
+1522777192 source:z:\desktop\projet_piscine\reseaux.cpp
+	"reseaux.h"
+
+1522777192 z:\desktop\projet_piscine\reseaux.h
 
