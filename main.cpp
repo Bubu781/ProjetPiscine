@@ -12,19 +12,29 @@ int main()
     grman::set_pictures_path("pics");
 
     /// Un exemple de graphe
+    Graph g1, g2, g3;
     Graph g;
-    g.load("fichier1.txt");
-
+    g1.load("fichier1.txt");
+    //g2.load("fichier2.txt");
+    //g3.load("fichier3.txt");
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement � des frameworks plus avanc�s )
     while ( !key[KEY_ESC] )
     {
-        /// Il faut appeler les m�thodes d'update des objets qui comportent des widgets
-        g.update();
+        if(g.get_used())
+        {
+            /// Il faut appeler les m�thodes d'update des objets qui comportent des widgets
+            g.update();
 
-        /// Mise � jour g�n�rale (clavier/souris/buffer etc...)
-        grman::mettre_a_jour();
+            /// Mise � jour g�n�rale (clavier/souris/buffer etc...)
+            grman::mettre_a_jour();
+        }
+        else
+        {
+            g = g1;
+            g.set_used(true);
+        }
     }
     grman::fermer_allegro();
 

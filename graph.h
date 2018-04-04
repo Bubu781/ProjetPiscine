@@ -142,7 +142,7 @@ class Vertex
 =======
         std::string m_nom;
         std::string m_img;
-        /// liste des indices des arcs partant du sommet : accès aux successeurs
+        /// liste des indices des arcs partant du sommet : accï¿½s aux successeurs
 >>>>>>> Remise prec.
         std::vector<int> m_out;
 
@@ -170,7 +170,7 @@ class Vertex
         /// Vertex ï¿½tant gï¿½rï¿½ par Graph ce sera la mï¿½thode update de graph qui appellera
 =======
 
-        /// Vertex étant géré par Graph ce sera la méthode update de graph qui appellera
+        /// Vertex ï¿½tant gï¿½rï¿½ par Graph ce sera la mï¿½thode update de graph qui appellera
 >>>>>>> Remise prec.
         /// le pre_update et post_update de Vertex (pas directement la boucle de jeu)
         /// Voir l'implï¿½mentation Graph::update dans le .cpp
@@ -242,7 +242,7 @@ class Edge
         /// le POINTEUR sur l'interface associï¿½e, nullptr -> pas d'interface
 =======
         bool m_present = true;
-        /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
+        /// le POINTEUR sur l'interface associï¿½e, nullptr -> pas d'interface
 >>>>>>> Remise prec.
         std::shared_ptr<EdgeInterface> m_interface = nullptr;
 
@@ -323,7 +323,7 @@ class Graph
         /// La "liste" des arï¿½tes
 =======
         std::string m_nom;
-        /// La "liste" des arêtes
+        /// La "liste" des arï¿½tes
 >>>>>>> Remise prec.
         std::map<int, Edge> m_edges;
         std::map<int, Edge> m_edges_mem;
@@ -336,12 +336,13 @@ class Graph
         int nb_arretes;
         /// le POINTEUR sur l'interface associï¿½e, nullptr -> pas d'interface
 =======
-        /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
+        /// le POINTEUR sur l'interface associï¿½e, nullptr -> pas d'interface
 >>>>>>> Remise prec.
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
         int nb_sommet;
         int nb_arretes;
+        bool m_used = false;
 
     public:
 
@@ -359,10 +360,11 @@ class Graph
         /// Cette mï¿½thode est ï¿½ enlever et remplacer par un systï¿½me
         /// de chargement de fichiers par exemple.
         void load(std::string fic);
-        void save(std::string fic);
+        void save();
         void modification(int i);
 
-
+        bool get_used() {return m_used;}
+        void set_used(bool _used) {m_used = _used;}
         /// La mï¿½thode update ï¿½ appeler dans la boucle de jeu pour les graphes avec interface
         void update();
 };
