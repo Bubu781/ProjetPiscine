@@ -7,6 +7,7 @@
 /// Le constructeur met en place les éléments de l'interface
 VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, int pic_idx)
 {
+    std::string nom;
     // La boite englobante
     m_top_box.set_pos(x, y);
     m_top_box.set_dim(130, 100);
@@ -39,6 +40,13 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
 
     m_box_label_idx.add_child( m_label_idx );
     m_label_idx.set_message( std::to_string(idx) );
+
+    m_box_label_idx.add_child( m_titre );
+    nom = pic_name;
+    for(int i = 1; i <=4; i++)
+        nom[nom.size()-i] = ' ';
+    m_titre.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Down);
+    m_titre.set_message(nom);
 }
 
 
