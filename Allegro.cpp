@@ -6,7 +6,7 @@ int Menu()
 
     int fond;
 
-    ///tant qu'on a pas cliqué sur un bouton
+    ///tant qu'on a pas cliquï¿½ sur un bouton
     if((mouse_b&1) && (mouse_x>300 && mouse_x<725))
     {
 
