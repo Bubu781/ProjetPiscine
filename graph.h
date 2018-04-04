@@ -318,6 +318,7 @@ class Graph
 
         int nb_sommet;
         int nb_arretes;
+        bool m_used = false;
 
     public:
 
@@ -335,10 +336,11 @@ class Graph
         /// Cette méthode est à enlever et remplacer par un système
         /// de chargement de fichiers par exemple.
         void load(std::string fic);
-        void save(std::string fic);
+        void save();
         void modification(int i);
 
-
+        bool get_used() {return m_used;}
+        void set_used(bool _used) {m_used = _used;}
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
 };

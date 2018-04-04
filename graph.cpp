@@ -196,6 +196,7 @@ void Graph::load(std::string fic)
     int indice, x, y, s1, s2, nb;
     double poids;
     bool presence;
+    m_nom = fic;
     std::string img;
     if(fichier)
     {
@@ -253,10 +254,10 @@ void Graph::load(std::string fic)
       add_interfaced_edge(9, 3, 7, 80.0);*/
 }
 
-void Graph::save(std::string fic)
+void Graph::save()
 {
 
-    std::ofstream fichier(fic, std::ios::trunc);
+    std::ofstream fichier(m_nom, std::ios::trunc);
     if(fichier)
     {
         fichier << nb_sommet << std::endl;
@@ -313,9 +314,11 @@ void Graph::update()
             modification(elem.first);
     }
     if(m_interface->m_save.clicked())
-        save("fichier1.txt");
+        save();
     if(m_interface->m_quit.clicked())
         exit(0);
+    if(m_interface->m_return.clicked())
+        m_used = false;
 
 }
 
