@@ -18,8 +18,8 @@ int main()
     /// Un exemple de graphe
     Graph g1, g2, g3;
     Graph g;
-    g1.load("fichier1.txt");
-    //g2.load("fichier2.txt");
+    //g1.load("fichier1.txt");
+    g2.load("fichier2.txt");
     //g3.load("fichier3.txt");
 
     /// Vous gardez la main sur la "boucle de jeu"
@@ -36,7 +36,7 @@ int main()
         }
         else
         {
-            g = g1;
+            g = g2;
             g.set_used(true);
         }
     }

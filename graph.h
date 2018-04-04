@@ -276,6 +276,7 @@ class GraphInterface
 
         /// Dans cette boite seront ajout�s les (interfaces des) sommets et des arcs...
         grman::WidgetBox m_main_box;
+        grman::WidgetImage m_fond;
 
         /// Dans cette boite seront ajout�s des boutons de contr�le etc...
         grman::WidgetBox m_tool_box;
@@ -293,6 +294,9 @@ class GraphInterface
         grman::WidgetButton m_return;
         grman::WidgetText m_txt_return;
 
+        grman::WidgetButton m_disconnect;
+        grman::WidgetText m_txt_disconnect;
+
         // A compl�ter �ventuellement par des widgets de d�coration ou
         // d'�dition (boutons ajouter/enlever ...)
 
@@ -300,7 +304,7 @@ class GraphInterface
 
         // Le constructeur met en place les �l�ments de l'interface
         // voir l'impl�mentation dans le .cpp
-        GraphInterface(int x, int y, int w, int h);
+        GraphInterface(int x, int y, int w, int h, std::string nom);
 };
 
 
@@ -339,6 +343,7 @@ class Graph
         /// de chargement de fichiers par exemple.
         void load(std::string fic);
         void save();
+        void disconnect();
         void modification(int i);
 
         bool get_used() {return m_used;}
