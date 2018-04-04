@@ -113,6 +113,8 @@ class VertexInterface
         // Un label indiquant l'index du sommet
         grman::WidgetText m_label_idx;
 
+        grman::WidgetText m_titre;
+
         // Une boite pour le label pr�c�dent
         grman::WidgetText m_box_label_idx;
 

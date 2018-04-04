@@ -2,7 +2,7 @@
 1522845492 source:z:\desktop\projet_piscine\graph.cpp
 	"graph.h"
 
-1522845492 z:\desktop\projet_piscine\graph.h
+1522846278 z:\desktop\projet_piscine\graph.h
 	<fstream>
 >>>>>>> Remise prec.
 	<vector>
@@ -77,8 +77,7 @@
 1522786174 source:z:\desktop\projet_piscine\grman\widget.cpp
 	"widget.h"
 
-1522841368 source:z:\desktop\projet_piscine\main.cpp
->>>>>>> Remise prec.
+1522845600 source:z:\desktop\projet_piscine\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
