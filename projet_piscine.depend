@@ -145,3 +145,70 @@
 	<iostream>
 	"graph.h"
 
+1522777171 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.cpp
+	"graph.h"
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman_couleurs.h
+
+1522781086 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\coords.h
+	<cmath>
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522755048 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\coords.cpp
+	"coords.h"
+
+1522782295 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522755049 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\widget.cpp
+	"widget.h"
+
+1522780670 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\allegro.cpp
+	"allegro.h"
+
+1522777294 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\allegro.h
+	"grman/grman.h"
+
+1522781258 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Allegro.h"
+
+1522774945 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\reseaux.cpp
+	"reseaux.h"
+
+1522774945 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\reseaux.h
+

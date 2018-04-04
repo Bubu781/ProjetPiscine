@@ -2,13 +2,17 @@
 #include <iostream>
 
 #include "graph.h"
+#include "Allegro.h"
 
 int main()
 {
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
+    BITMAP *fond;
+    fond =load_bitmap("pics/fond.bmp",NULL);
 
     /// Le nom du r�pertoire o� se trouvent les images � charger
+    //
     grman::set_pictures_path("pics");
 
     /// Un exemple de graphe
