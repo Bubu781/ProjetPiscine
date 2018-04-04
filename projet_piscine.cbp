@@ -34,8 +34,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Linker>
-			<Add library="C:/Program Files (x86)/CodeBlocks/MinGW/lib/liballeg44.dll.a" />
+			<Add library="loadpng" />
+			<Add library="png16.dll" />
+			<Add library="jpgalleg" />
+			<Add library="alleg44.dll" />
 		</Linker>
+		<Unit filename="Allegro.cpp" />
+		<Unit filename="Allegro.h" />
 		<Unit filename="graph.cpp" />
 		<Unit filename="graph.h" />
 		<Unit filename="grman/coords.cpp" />
@@ -46,6 +51,8 @@
 		<Unit filename="grman/widget.cpp" />
 		<Unit filename="grman/widget.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="reseaux.cpp" />
+		<Unit filename="reseaux.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
