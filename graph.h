@@ -141,11 +141,12 @@ class Vertex
         std::string m_nom;
         std::string m_img;
         int m_idx;
+        int m_rythm; ///Rythme de croissance
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
         std::vector<int> m_out;
         bool m_marqued;
         /// un exemple de donn�e associ�e � l'arc, on peut en ajouter d'autres...
-        double m_value;
+        double m_value; ///N
 
         bool m_present = true;
 
@@ -170,6 +171,7 @@ class Vertex
         /// Voir l'impl�mentation Graph::update dans le .cpp
         void pre_update();
         void post_update();
+
 
         void set_marqued(bool mark) { m_marqued = mark;}
         bool get_marqued() {return m_marqued;}

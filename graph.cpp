@@ -383,7 +383,7 @@ void Graph::update()
     if(m_interface->m_mod_edge.clicked())
         modification_edges();
 
-    fort_connexe();
+    //fort_connexe();
 
 }
 
@@ -634,8 +634,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         m_edges[idx].m_from = id_vert1;
         m_edges[idx].m_to = id_vert2;
         m_edges[idx].set_idx(idx);
-        m_vertices[id_vert1].m_out.push_back(idx);
-        m_vertices[id_vert2].m_in.push_back(idx);
+        m_vertices[id_vert1].m_out.push_back(id_vert2);
+        m_vertices[id_vert2].m_in.push_back(id_vert1);
         m_vertices[id_vert1].set_idx(id_vert1);
         m_vertices[id_vert2].set_idx(id_vert2);
         m_edges_mem[idx] = m_edges[idx];
