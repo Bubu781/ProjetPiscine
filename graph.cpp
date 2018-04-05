@@ -172,6 +172,13 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
         m_fond.set_pic_idx(0);
         m_fond.set_gravity_x(grman::GravityX::Right);
     }
+    else if(nom =="fichier3.txt")
+    {
+        m_main_box.add_child( m_fond );
+        m_fond.set_pic_name("ciel.png");
+        m_fond.set_pic_idx(0);
+        m_fond.set_gravity_x(grman::GravityX::Right);
+    }
 
     m_tool_box.add_child(m_quit);
     m_quit.set_dim(75,30);
@@ -500,7 +507,7 @@ retour:
 }
 
 void Graph::fort_connexe()
-{
+{/*
     std::vector<int> liste;
     std::vector<std::vector<int>> mat;
     for(auto elem : m_vertices)
@@ -516,21 +523,21 @@ void Graph::fort_connexe()
 retour2:
         for(auto arrete : v.m_out)
         {
-            if(m_edges[arrete].m_to == elem.first)
+            if(m_vertices[arrete].m_out == elem.first)
             {
                 liste.push_back(arrete);
                 break;
             }
-            else if(m_edges[arrete].m_from == v.get_idx() && !m_vertices[m_edges[arrete].m_to].get_marqued())
+            else if(!m_vertices[m_vertices[arrete].m_out].get_marqued())
             {
-                v = m_vertices[m_edges[arrete].m_to];
-                m_edges[arrete].set_marqued(true);
+                v = m_vertices[arrete].m_out;
+                m_vertices[m_vertices[arrete].m_out].set_marqued(true);
                 liste.push_back(arrete);
                 goto retour2;
             }
             else if(v.m_out.empty())
             {
-                m_vertices[v.get_idx()].set_marqued(true);
+                //m_vertices[v.get_idx()].set_marqued(true);
                 v = m_vertices[m_edges[arrete].m_from];
                 liste.erase(liste.end());
                 for(auto arretes : m_edges)
@@ -556,7 +563,7 @@ retour2:
             for(auto elem2 : liste)
                 m_edges[elem2].m_interface->m_top_edge.set_color(ROUGE);
         }
-    }
+    }*/
 }
 
 /// Aide � l'ajout de sommets interfac�s
