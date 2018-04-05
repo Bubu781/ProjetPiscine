@@ -414,7 +414,7 @@ class WidgetEdge : public Widget
         // Elements de d�coration : pointes de fl�ches, rond etc...
         std::vector<ArrowItem> m_items;
 
-        int m_color = GRISSOMBRE;
+        int m_color = GRISSOMBRE; ///Forte connexité
         int m_thickness = 2;
 
         // Position relative des �ventuels Widgets enfants le long de l'arc, 0 origine, 0.5 milieu, 1.0 destination
@@ -443,6 +443,7 @@ class WidgetEdge : public Widget
 
         void set_children_position(double rel_pos) { m_children_position = rel_pos; }
         void set_children_lateral(double abs_lat) { m_children_lateral = abs_lat; }
+        void set_color(int _color) {m_color = _color;}
 };
 
 

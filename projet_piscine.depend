@@ -1,1 +1,215 @@
 # depslib dependency file v1.0
+<<<<<<< HEAD
+=======
+21 8
+
+1522848133 source:z:\desktop\projet_piscine\graph.cpp
+	"graph.h"
+
+1522848100 z:\desktop\projet_piscine\graph.h
+	<fstream>
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522841368 ien
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522777192 D
+
+1522777192 z:\desktop\projet_piscine\grman\grman.h
+
+1522777192 z:\desktop\projet_piscine\grman\grman_couleurs.h
+
+1522777192 z:\desktop\projet_piscine\grman\coords.h
+	<cmath>
+	<cmath>
+
+1522848154 z:\desktop\projet_piscine\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522777192 source:z:\desktop\projet_piscine\grman\coords.cpp
+	"coords.h"
+	"coords.h"
+
+1522777192 source:z:\desktop\projet_piscine\grman\grman.cpp
+
+1522786174 source:z:\desktop\projet_piscine\grman\widget.cpp
+	"widget.h"
+	"widget.h"
+
+1522848848 source:z:\desktop\projet_piscine\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Allegro.h"
+
+1522842698 source:z:\desktop\projet_piscine (3)\projet_piscine\graph.cpp
+	"graph.h"
+
+1522840280 z:\desktop\projet_piscine (3)\projet_piscine\graph.h
+	<fstream>
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522777192 z:\desktop\projet_piscine (3)\projet_piscine\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522777192 z:\desktop\projet_piscine (3)\projet_piscine\grman\grman_couleurs.h
+
+1522777192 z:\desktop\projet_piscine (3)\projet_piscine\grman\coords.h
+	<cmath>
+
+1522838294 z:\desktop\projet_piscine (3)\projet_piscine\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522777192 source:z:\desktop\projet_piscine (3)\projet_piscine\grman\coords.cpp
+	"coords.h"
+
+1522777192 source:z:\desktop\projet_piscine (3)\projet_piscine\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522786174 source:z:\desktop\projet_piscine (3)\projet_piscine\grman\widget.cpp
+	"widget.h"
+
+1522841368 source:z:\desktop\projet_piscine (3)\projet_piscine\main.cpp
+
+1522777171 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.cpp
+	"graph.h"
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman_couleurs.h
+
+1522781086 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\coords.h
+	<cmath>
+
+1522755049 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522755048 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\coords.cpp
+	"coords.h"
+
+1522782295 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522755049 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\grman\widget.cpp
+	"widget.h"
+
+1522780670 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\allegro.cpp
+	"allegro.h"
+
+1522777294 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\allegro.h
+	"grman/grman.h"
+
+1522781258 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Allegro.h"
+
+1522774945 source:c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\reseaux.cpp
+	"reseaux.h"
+
+1522774945 c:\users\ilana tordjman\desktop\tp info ing2\nouveau dossier\projetpiscine\reseaux.h
+
+1522848848 z:\desktop\projet_piscine\allegro.h
+	"grman/grman.h"
+
+1522848848 source:z:\desktop\projet_piscine\allegro.cpp
+	"allegro.h"
+
+1522777192 source:z:\desktop\projet_piscine\reseaux.cpp
+	"reseaux.h"
+
+1522777192 z:\desktop\projet_piscine\reseaux.h
+
+>>>>>>> developp
