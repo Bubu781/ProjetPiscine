@@ -200,10 +200,10 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_disconnect.set_pos(1,580);
     m_disconnect.set_bg_color(MARRON);
 
-    m_tool_box.add_child(m_add_sommet);
-    m_add_sommet.set_dim(75,30);
-    m_add_sommet.set_pos(1,545);
-    m_add_sommet.set_bg_color(MARRON);
+    m_tool_box.add_child(m_simulation);
+    m_simulation.set_dim(75,30);
+    m_simulation.set_pos(1,545);
+    m_simulation.set_bg_color(ROUGE);
 
     m_tool_box.add_child(m_mod_edge);
     m_mod_edge.set_dim(75,30);
@@ -234,11 +234,11 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_txt_disconnect.set_message("Connexite");
     m_txt_disconnect.set_color(BLANC);
 
-    m_tool_box.add_child(m_txt_add_sommet);
-    m_txt_add_sommet.set_dim(75,10);
-    m_txt_add_sommet.set_pos(1,560);
-    m_txt_add_sommet.set_message("Ajout Som");
-    m_txt_add_sommet.set_color(BLANC);
+    m_tool_box.add_child(m_txt_simulation);
+    m_txt_simulation.set_dim(75,10);
+    m_txt_simulation.set_pos(1,560);
+    m_txt_simulation.set_message("Simulation");
+    m_txt_simulation.set_color(BLANC);
 
     m_tool_box.add_child(m_txt_mod_edge);
     m_txt_mod_edge.set_dim(75,10);
@@ -372,6 +372,7 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
+
     for (auto elem : m_interface->m_buton_box)
     {
         if(elem.second->clicked())
@@ -385,14 +386,22 @@ void Graph::update()
         m_used = false;
     if(m_interface->m_disconnect.clicked())
         disconnect();
-    if(m_interface->m_add_sommet.clicked())
-        ajout_sommet();
+    if(m_interface->m_simulation.clicked())
+        {
+            m_interface->m_simulation.set_bg_color(ROUGE);
+            simulation = !simulation;
+        }
     if(m_interface->m_mod_edge.clicked())
         modification_edges();
 
-    //fort_connexe();
+    fort_connexe();
+    if(simulation)
+        evol_pop();
 
-    evol_pop();
+    for(auto elem : m_edges)
+    {
+        elem.second.m_interface->m_top_edge.set_thickness(1+elem.second.m_weight/20);
+    }
 
 }
 
@@ -401,31 +410,45 @@ void Graph::evol_pop()
     double K;///K capacité de portage
     std::vector<double> liste;
     double tot;
+    double coef, N, R;
+    m_interface->m_simulation.set_bg_color(VERT);
     for(auto elem: m_vertices)
     {
         K=0;
         tot=0;
         for(auto arete: m_edges)
         {
-            if(arete.second.m_to==elem.first && m_vertices[arete.second.m_to].m_value >0)
-                K+=arete.second.m_weight*m_vertices[arete.second.m_from].m_value, liste.push_back(arete.second.m_weight);
-
+            if(m_edges[arete.first].m_to==elem.first && m_vertices[arete.second.m_from].m_value > 0)
+            {
+                coef = 1+ m_edges[arete.first].m_weight/100;
+                N = m_vertices[arete.second.m_from].m_value;
+                K+=coef*N;
+            }
+            else if(m_edges[arete.first].m_from==elem.first && m_vertices[arete.second.m_to].m_value > 0)
+            {
+                coef = 1+ m_edges[arete.first].m_weight/100;
+                N = m_vertices[arete.second.m_to].m_value;
+                liste.push_back(coef*N);
+            }
 
         }
         for(auto coef : liste)
-            tot += m_vertices[elem.first].m_value*coef;
-        m_vertices[elem.first].m_value+= elem.second.m_rythm*elem.second.m_value*(1-(elem.second.m_value)/K)-tot;
-    }
-}
+            tot += coef;
+        R = m_vertices[elem.first].m_rythm;
+        N = m_vertices[elem.first].m_value;
+        N+= R*N*(1-(N/K))-tot;
+        m_vertices[elem.first].m_value = K;
 
-void Graph::ajout_sommet()
-{
-    system("cls");
+        if(m_vertices[elem.first].m_value < 0)
+            m_vertices[elem.first].m_value = 0;
+        liste.erase(liste.begin(),liste.end());
+    }
+    //system("PAUSE");
 }
 
 void Graph::modification_edges()
 {
-    int s1, s2, num;
+    int s1, s2, num, x;
     bool verif = false;
     system("cls");
     std::cout << "Quels sommets relier/supprimer?" << std::endl;
@@ -437,12 +460,16 @@ void Graph::modification_edges()
         if(elem.second.m_from == s1 && elem.second.m_to == s2)
             verif = true, num = elem.first;
     if(!verif)
-        add_interfaced_edge(m_vertices_mem.size(), s1, s2, 50, true);
+        {
+            add_interfaced_edge(nb_arretes, s1, s2, 50, true);
+            nb_arretes++;
+        }
     else
     {
         m_interface->m_main_box.remove_child(m_edges[num].m_interface->m_top_edge);
         m_edges_mem[num].set_present(false);
         m_edges.erase(num);
+        nb_arretes--;
     }
     system("cls");
 }
@@ -531,63 +558,71 @@ retour:
 }
 
 void Graph::fort_connexe()
-{/*
+{
     std::vector<int> liste;
     std::vector<std::vector<int>> mat;
+    Vertex v;
+    bool verif;
     for(auto elem : m_vertices)
     {
-        for(auto elem1 : m_edges)
-            if(elem1.second.get_marqued())
-                elem1.second.set_marqued(false);
-        for(auto elem1 : m_vertices)
-            if(elem1.second.get_marqued())
-                elem1.second.set_marqued(false);
-
         v = elem.second;
-retour2:
-        for(auto arrete : v.m_out)
+        for(auto som : m_vertices)
+            som.second.m_marqued = false;
+        retour:
+            //std::cout<<v.m_nom << std::endl;
+            liste.push_back(v.m_idx);
+            retour2:
+            verif = false;
+        for(auto conn : v.m_out)
         {
-            if(m_vertices[arrete].m_out == elem.first)
+            if(conn == elem.first)
             {
-                liste.push_back(arrete);
+                liste.push_back(elem.first);
+                elem.second.m_marqued = true;
                 break;
             }
-            else if(!m_vertices[m_vertices[arrete].m_out].get_marqued())
+            else if(!m_vertices[conn].m_marqued)
             {
-                v = m_vertices[arrete].m_out;
-                m_vertices[m_vertices[arrete].m_out].set_marqued(true);
-                liste.push_back(arrete);
-                goto retour2;
+                v = m_vertices[conn];
+                m_vertices[conn].m_marqued = true;
+                goto retour;
             }
-            else if(v.m_out.empty())
-            {
-                //m_vertices[v.get_idx()].set_marqued(true);
-                v = m_vertices[m_edges[arrete].m_from];
-                liste.erase(liste.end());
-                for(auto arretes : m_edges)
-                    if(arretes.second.m_to == v.get_idx())
-                        arretes.second.set_marqued(true);
-                goto retour2;
-            }
-
         }
-
-        if(m_edges[liste.back()].m_to == elem.first)
+            if(v.m_out.empty() && liste.back() != elem.first)
+                verif = true;
+        if(verif)
         {
-            mat.push_back(liste);
+            liste.pop_back();
+            if(liste.empty())
+                goto next;
+            v = m_vertices[liste.back()];
+            goto retour2;
         }
+        if(liste.back() == elem.first && liste.size() != 1)
+            mat.push_back(liste);
+        next:
+        liste.erase(liste.begin(), liste.end());
+
     }
-    for(auto elem : m_edges)
-        elem.second.m_interface->m_top_edge.set_color(GRISSOMBRE);
     if(!mat.empty())
     {
-        for(auto elem1 : mat)
+        for(auto elem : m_edges)
         {
-            liste = elem1;
-            for(auto elem2 : liste)
-                m_edges[elem2].m_interface->m_top_edge.set_color(ROUGE);
+            elem.second.m_interface->m_top_edge.set_color(GRISSOMBRE);
         }
-    }*/
+        for(auto elem : mat)
+        {
+            liste = elem;
+            for(int i=0; i < liste.size()-1; i++)
+            {
+                for(auto arete : m_edges)
+                {
+                    if(arete.second.m_from == liste[i] && arete.second.m_to == liste[i+1])
+                        arete.second.m_interface->m_top_edge.set_color(ROUGE);
+                }
+            }
+        }
+    }
 }
 
 /// Aide � l'ajout de sommets interfac�s
@@ -609,6 +644,7 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
         m_vertices[idx] = Vertex(value, vi);
         m_vertices[idx].m_img = pic_name;
         m_vertices[idx].m_nom = m_vertices[idx].m_img;
+        m_vertices[idx].m_idx = idx;
         for(int i = 1; i <= 4; i++)
             m_vertices[idx].m_nom[m_vertices[idx].m_nom.size()-i] = ' ';
         m_vertices_mem[idx] = m_vertices[idx];
@@ -618,22 +654,24 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
         m_vertices_mem[idx] = Vertex(value, vi);
         m_vertices_mem[idx].m_img = pic_name;
         m_vertices_mem[idx].m_nom = m_vertices_mem[idx].m_img;
+        m_vertices_mem[idx].m_idx = idx;
         for(int i = 1; i <= 4; i++)
             m_vertices_mem[idx].m_nom[m_vertices_mem[idx].m_nom.size()-i] = ' ';
     }
     m_vertices_mem[idx].set_present(presence);
+
     m_interface->m_noms[idx] = new grman::WidgetText(m_vertices_mem[idx].m_nom);
     m_interface->m_buton_box[idx] = new grman::WidgetButton;
 
     m_interface->m_tool_box.add_child(*m_interface->m_noms[idx]);
-    m_interface->m_noms[idx]->set_dim(75-24,20);
-    m_interface->m_noms[idx]->set_pos(32,26*idx);
+    m_interface->m_noms[idx]->set_dim(75-24,10);
+    m_interface->m_noms[idx]->set_pos(32,14*idx);
     if(idx  == 0)
-        m_interface->m_noms[idx]->set_pos(32,6);
+        m_interface->m_noms[idx]->set_pos(32,0);
     m_interface->m_noms[idx]->set_bg_color(BLANCBLEU);
     m_interface->m_tool_box.add_child(*m_interface->m_buton_box[idx]);
-    m_interface->m_buton_box[idx]->set_dim(20,20);
-    m_interface->m_buton_box[idx]->set_pos(1,24*idx);
+    m_interface->m_buton_box[idx]->set_dim(20,10);
+    m_interface->m_buton_box[idx]->set_pos(1,14*idx);
     if(presence)
         m_interface->m_buton_box[idx]->set_bg_color(VERT);
     else
@@ -679,8 +717,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         m_edges_mem[idx].m_from = id_vert1;
         m_edges_mem[idx].m_to = id_vert2;
         m_edges_mem[idx].set_idx(idx);
-        m_vertices_mem[id_vert1].m_out.push_back(idx);
-        m_vertices_mem[id_vert2].m_in.push_back(idx);
+        m_vertices_mem[id_vert1].m_out.push_back(id_vert2);
+        m_vertices_mem[id_vert2].m_in.push_back(id_vert1);
         m_vertices_mem[id_vert1].set_idx(id_vert1);
         m_vertices_mem[id_vert2].set_idx(id_vert2);
     }

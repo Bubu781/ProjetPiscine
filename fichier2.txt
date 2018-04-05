@@ -1,20 +1,20 @@
 9
 0 50 202 1 1
-oiseau.png
+oiseau.bmp
 1 50 676 7 1
-chat.png
+chat1.bmp
 2 50 1 208 1
-papillon.png
+papillon.bmp
 3 50 399 106 1
-loup.png
+loup.bmp
 4 50 96 314 1
-herbe.png
+herbe.bmp
 5 50 504 271 1
-renard.png
+renard.bmp
 6 50 773 306 1
-aigle.png
+aigle.bmp
 7 50 339 553 1
-lievre.png
+lievre.bmp
 8 50 69 615 1
 foret.png
 14

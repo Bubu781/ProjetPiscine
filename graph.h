@@ -141,7 +141,7 @@ class Vertex
         std::string m_nom;
         std::string m_img;
         int m_idx;
-        double m_rythm=1; ///Rythme de croissance
+        double m_rythm=1.5; ///Rythme de croissance
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
         std::vector<int> m_out;
         bool m_marqued;
@@ -309,8 +309,8 @@ class GraphInterface
         grman::WidgetButton m_disconnect;
         grman::WidgetText m_txt_disconnect;
 
-        grman::WidgetButton m_add_sommet;
-        grman::WidgetText m_txt_add_sommet;
+        grman::WidgetButton m_simulation;
+        grman::WidgetText m_txt_simulation;
 
         grman::WidgetButton m_mod_edge;
         grman::WidgetText m_txt_mod_edge;
@@ -341,7 +341,7 @@ class Graph
 
         /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
-
+        bool simulation = false;
         int nb_sommet;
         int nb_arretes;
         bool m_used = false;
@@ -364,12 +364,12 @@ class Graph
         void load(std::string fic);
         void save();
         void disconnect();
-        void ajout_sommet();
         void modification_edges();
         void modification(int i);
         void fort_connexe();
         void evol_pop();
 
+         bool get_simu() {return simulation;}
         bool get_used() {return m_used;}
         void set_used(bool _used) {m_used = _used;}
         /// La m�thode update � appeler dans la boucle de jeu pour les graphes avec interface

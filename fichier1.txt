@@ -1,18 +1,21 @@
 7
 0 50 602 199 1
-requin.png
+requin.bmp
+
 1 50 232 10 1
-goeland.png
+goeland.bmp
 2 50 306 371 1
-poisson.png
+poisson.bmp
+
 3 50 515 584 1
-corail.png
+corail.bmp
 4 50 23 553 1
-bullot.png
+bullot.bmp
 5 50 299 575 1
-debrits.png
+debrits.bmp
+
 6 50 748 571 1
-sels.png
+sels.bmp
 7
 0 2 0 10 1
 1 2 1 30 1

@@ -52,7 +52,7 @@ int main()
         g.update();
 
         /// Mise � jour g�n�rale (clavier/souris/buffer etc...)
-        grman::mettre_a_jour();
+        grman::mettre_a_jour(g.get_simu());
         }
     }
     grman::fermer_allegro();
