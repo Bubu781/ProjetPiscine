@@ -385,6 +385,30 @@ void Graph::update()
 
     //fort_connexe();
 
+    evol_pop();
+
+}
+
+void Graph::evol_pop()
+{
+    double K;///K capacité de portage
+    std::vector<double> liste;
+    double tot;
+    for(auto elem: m_vertices)
+    {
+        K=0;
+        tot=0;
+        for(auto arete: m_edges)
+        {
+            if(arete.second.m_to==elem.first && m_vertices[arete.second.m_to].m_value >0)
+                K+=arete.second.m_weight*m_vertices[arete.second.m_from].m_value, liste.push_back(arete.second.m_weight);
+
+
+        }
+        for(auto coef : liste)
+            tot += m_vertices[elem.first].m_value*coef;
+        m_vertices[elem.first].m_value+= elem.second.m_rythm*elem.second.m_value*(1-(elem.second.m_value)/K)-tot;
+    }
 }
 
 void Graph::ajout_sommet()
