@@ -141,7 +141,7 @@ class Vertex
         std::string m_nom;
         std::string m_img;
         int m_idx;
-        int m_rythm; ///Rythme de croissance
+        double m_rythm=1; ///Rythme de croissance
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
         std::vector<int> m_out;
         bool m_marqued;
@@ -368,6 +368,7 @@ class Graph
         void modification_edges();
         void modification(int i);
         void fort_connexe();
+        void evol_pop();
 
         bool get_used() {return m_used;}
         void set_used(bool _used) {m_used = _used;}
