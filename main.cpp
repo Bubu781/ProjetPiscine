@@ -22,7 +22,7 @@ int main()
     //std::cout<<"ouston"<<std::endl;
     g1.load("fichier1.txt");
     g2.load("fichier2.txt");
-    //g3.load("fichier3.txt");
+    g3.load("fichier3.txt");
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement � des frameworks plus avanc�s )
@@ -53,7 +53,7 @@ int main()
         g.update();
 
         /// Mise � jour g�n�rale (clavier/souris/buffer etc...)
-        grman::mettre_a_jour();
+        grman::mettre_a_jour(g.get_simu());
         }
     }
     grman::fermer_allegro();

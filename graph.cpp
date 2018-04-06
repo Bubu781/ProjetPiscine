@@ -172,72 +172,101 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
         m_fond.set_pic_idx(0);
         m_fond.set_gravity_x(grman::GravityX::Right);
     }
+    else if(nom =="fichier3.txt")
+    {
+        m_main_box.add_child( m_fond );
+        m_fond.set_pic_name("ciel.png");
+        m_fond.set_pic_idx(0);
+        m_fond.set_gravity_x(grman::GravityX::Right);
+    }
 
     m_tool_box.add_child(m_quit);
     m_quit.set_dim(75,30);
     m_quit.set_pos(1,685);
     m_quit.set_bg_color(ROUGE);
 
+    m_quit.add_child(m_txt_quit);
+    m_txt_quit.set_dim(75,10);
+    m_txt_quit.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
+    m_txt_quit.set_message("Quitter");
+    m_txt_quit.set_color(BLANC);
+
     m_tool_box.add_child(m_return);
     m_return.set_dim(75,30);
     m_return.set_pos(1,650);
-    m_return.set_bg_color(BLEU);
+    m_return.set_bg_color(makecol(0,128,255));
+
+    m_return.add_child(m_txt_return);
+    m_txt_return.set_dim(75,10);
+    m_txt_return.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
+    m_txt_return.set_message("Menu");
+    m_txt_return.set_color(BLANC);
 
     m_tool_box.add_child(m_save);
     m_save.set_dim(75,30);
     m_save.set_pos(1,615);
-    m_save.set_bg_color(VERT);
+    m_save.set_bg_color(makecol(140,0,140));
+
+    m_save.add_child(m_txt_save);
+    m_txt_save.set_dim(75,10);
+    m_txt_save.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
+    m_txt_save.set_message("Sauvegarde");
+    m_txt_save.set_color(BLANC);
 
     m_tool_box.add_child(m_disconnect);
     m_disconnect.set_dim(75,30);
     m_disconnect.set_pos(1,580);
-    m_disconnect.set_bg_color(MARRON);
+    m_disconnect.set_bg_color(makecol(225,32,167));
 
-    m_tool_box.add_child(m_add_sommet);
-    m_add_sommet.set_dim(75,30);
-    m_add_sommet.set_pos(1,545);
-    m_add_sommet.set_bg_color(MARRON);
+    m_disconnect.add_child(m_txt_disconnect);
+    m_txt_disconnect.set_dim(75,10);
+    m_txt_disconnect.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
+    m_txt_disconnect.set_message("Connexite");
+    m_txt_disconnect.set_color(BLANC);
+
+    m_tool_box.add_child(m_simulation);
+    m_simulation.set_dim(75,30);
+    m_simulation.set_pos(1,545);
+    m_simulation.set_bg_color(makecol(248,63,63));
+
+    m_simulation.add_child(m_txt_simulation);
+    m_txt_simulation.set_dim(75,10);
+    m_txt_simulation.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
+    m_txt_simulation.set_message("Simulation");
+    m_txt_simulation.set_color(BLANC);
 
     m_tool_box.add_child(m_mod_edge);
     m_mod_edge.set_dim(75,30);
     m_mod_edge.set_pos(1,510);
-    m_mod_edge.set_bg_color(MARRON);
+    m_mod_edge.set_bg_color(makecol(77,185,185));
 
-    m_tool_box.add_child(m_txt_quit);
-    m_txt_quit.set_dim(75,10);
-    m_txt_quit.set_pos(15,700);
-    m_txt_quit.set_message("Quitter");
-    m_txt_quit.set_color(BLANC);
-
-    m_tool_box.add_child(m_txt_return);
-    m_txt_return.set_dim(75,10);
-    m_txt_return.set_pos(24,665);
-    m_txt_return.set_message("Menu");
-    m_txt_return.set_color(BLANC);
-
-    m_tool_box.add_child(m_txt_save);
-    m_txt_save.set_dim(75,10);
-    m_txt_save.set_pos(1,630);
-    m_txt_save.set_message("Sauvegarde");
-    m_txt_save.set_color(BLANC);
-
-    m_tool_box.add_child(m_txt_disconnect);
-    m_txt_disconnect.set_dim(75,10);
-    m_txt_disconnect.set_pos(1,595);
-    m_txt_disconnect.set_message("Connexite");
-    m_txt_disconnect.set_color(BLANC);
-
-    m_tool_box.add_child(m_txt_add_sommet);
-    m_txt_add_sommet.set_dim(75,10);
-    m_txt_add_sommet.set_pos(1,560);
-    m_txt_add_sommet.set_message("Ajout Som");
-    m_txt_add_sommet.set_color(BLANC);
-
-    m_tool_box.add_child(m_txt_mod_edge);
+    m_mod_edge.add_child(m_txt_mod_edge);
     m_txt_mod_edge.set_dim(75,10);
-    m_txt_mod_edge.set_pos(1,525);
+    m_txt_mod_edge.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
     m_txt_mod_edge.set_message("Mod edge");
     m_txt_mod_edge.set_color(BLANC);
+
+    m_tool_box.add_child(m_grapique);
+    m_grapique.set_dim(75,30);
+    m_grapique.set_pos(1,475);
+    m_grapique.set_bg_color(MARRON);
+
+    m_grapique.add_child(m_txt_grapique);
+    m_txt_grapique.set_dim(75,10);
+    m_txt_grapique.set_gravity_xy(grman::GravityX::Center, grman::GravityY::Center);
+    m_txt_grapique.set_message("Graphique");
+    m_txt_grapique.set_color(BLANC);
+
+    m_tool_box.add_child(m_ft_connexe);
+    m_ft_connexe.set_dim(75,30);
+    m_ft_connexe.set_pos(1,440);
+    m_ft_connexe.set_bg_color(makecol(249,174,62));
+
+    m_ft_connexe.add_child(m_txt_ft_connexe);
+    m_txt_ft_connexe.set_dim(75,10);
+    m_txt_ft_connexe.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Center);
+    m_txt_ft_connexe.set_message("Ft connexite");
+    m_txt_ft_connexe.set_color(BLANC);
 }
 
 
@@ -251,6 +280,7 @@ void Graph::load(std::string fic)
     std::ifstream fichier(fic, std::ios::in);
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600, fic);
     int indice, x, y, s1, s2, nb;
+    double r;
     double poids;
     bool presence;
     m_nom = fic;
@@ -265,10 +295,11 @@ void Graph::load(std::string fic)
             fichier >> poids;
             fichier >> x;
             fichier >> y;
+            fichier >> r;
             fichier >> presence;
             fichier.ignore();
             getline(fichier, img, '\n');
-            add_interfaced_vertex(indice, poids, x, y, img, presence, 1);
+            add_interfaced_vertex(indice, poids, x, y,r, img, presence, 1);
         }
         fichier >> nb;
         nb_arretes = nb;
@@ -283,32 +314,6 @@ void Graph::load(std::string fic)
         }
         fichier.close();
     }
-    // La ligne pr�c�dente est en gros �quivalente � :
-    // m_interface = new GraphInterface(50, 0, 750, 600);
-
-    /// Les sommets doivent �tre d�finis avant les arcs
-    // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-    /*add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
-      add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
-      add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
-      add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
-      add_interfaced_vertex(4,  100.0, 600, 300, "clown5.jpg");
-      add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
-      add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
-      add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);
-
-      /// Les arcs doivent �tre d�finis entre des sommets qui existent !
-      // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
-      add_interfaced_edge(0, 1, 2, 50.0);
-      add_interfaced_edge(1, 0, 1, 50.0);
-      add_interfaced_edge(2, 1, 3, 75.0);
-      add_interfaced_edge(3, 4, 1, 25.0);
-      add_interfaced_edge(4, 6, 3, 25.0);
-      add_interfaced_edge(5, 7, 3, 25.0);
-      add_interfaced_edge(6, 3, 4, 0.0);
-      add_interfaced_edge(7, 2, 0, 100.0);
-      add_interfaced_edge(8, 5, 2, 20.0);
-      add_interfaced_edge(9, 3, 7, 80.0);*/
 }
 
 void Graph::save()
@@ -365,6 +370,7 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
+
     for (auto elem : m_interface->m_buton_box)
     {
         if(elem.second->clicked())
@@ -378,23 +384,78 @@ void Graph::update()
         m_used = false;
     if(m_interface->m_disconnect.clicked())
         disconnect();
-    if(m_interface->m_add_sommet.clicked())
-        ajout_sommet();
+    if(m_interface->m_simulation.clicked())
+        {
+            m_interface->m_simulation.set_bg_color(ROUGE);
+            simulation = !simulation;
+        }
     if(m_interface->m_mod_edge.clicked())
         modification_edges();
+    if(m_interface->m_grapique.clicked())
+        graphic();
+    //if(m_interface->m_ft_connexe.clicked())
+        fort_connexe();
+    if(simulation)
+        evol_pop();
 
-    //fort_connexe();
+    for(auto elem : m_edges)
+    {
+        elem.second.m_interface->m_top_edge.set_thickness(1+elem.second.m_weight/20);
+    }
 
 }
 
-void Graph::ajout_sommet()
+void Graph::evol_pop()
 {
-    system("cls");
+    double K;///K capacité de portage
+    std::vector<double> liste;
+    double tot;
+    double coef, N, R;
+    m_interface->m_simulation.set_bg_color(VERT);
+    for(auto elem: m_vertices)
+    {
+        m_vertices[elem.first].m_valeurs.push_back(elem.second.m_value);
+        K=0;
+        tot=0;
+        for(auto arete: m_edges)
+        {
+            if(m_edges[arete.first].m_to==elem.first && m_vertices[arete.second.m_from].m_value > 0)
+            {
+                coef =  m_edges[arete.first].m_weight/100;
+                N = m_vertices[arete.second.m_from].m_value;
+                K+=coef*N;
+            }
+            else if(m_edges[arete.first].m_from==elem.first && m_vertices[arete.second.m_to].m_value > 0)
+            {
+                if(m_vertices[arete.second.m_to].m_nom != "debrits    " && m_vertices[arete.second.m_to].m_nom != "sels    ")
+                {
+                    coef =  m_edges[arete.first].m_weight;
+                    N = m_vertices[arete.second.m_to].m_value;
+                    liste.push_back(coef*N);
+                }
+            }
+
+        }
+        for(auto coef : liste)
+            tot += coef;
+        R = m_vertices[elem.first].m_rythm;
+        N = m_vertices[elem.first].m_value;
+        N+= R*N*(1-(N/K))-tot;
+        m_vertices[elem.first].m_value = K;
+
+        if(m_vertices[elem.first].m_value < 0)
+            m_vertices[elem.first].m_value = 0;
+        if(m_vertices[elem.first].m_value >100)
+            m_vertices[elem.first].m_value = 100;
+
+        liste.erase(liste.begin(),liste.end());
+    }
+    //system("PAUSE");
 }
 
 void Graph::modification_edges()
 {
-    int s1, s2, num;
+    int s1, s2, num, x, y;
     bool verif = false;
     system("cls");
     std::cout << "Quels sommets relier/supprimer?" << std::endl;
@@ -406,12 +467,26 @@ void Graph::modification_edges()
         if(elem.second.m_from == s1 && elem.second.m_to == s2)
             verif = true, num = elem.first;
     if(!verif)
-        add_interfaced_edge(m_vertices_mem.size(), s1, s2, 50, true);
+        {
+            add_interfaced_edge(nb_arretes, s1, s2, 50, true);
+            nb_arretes++;
+            m_vertices[s1].m_out.push_back(s2);
+            m_vertices[s2].m_in.push_back(s1);
+        }
     else
     {
+        for(unsigned int i = 0;i < m_vertices[s1].m_in.size(); i++)
+            if(m_vertices[s1].m_in[i] == s2)
+                x = i;
+        for(unsigned int i = 0;i < m_vertices[s2].m_out.size(); i++)
+            if(m_vertices[s2].m_out[i] == s1)
+                y = i;
+        m_vertices[s1].m_out.erase(m_vertices[s1].m_out.begin() + x);
+        m_vertices[s2].m_in.erase(m_vertices[s2].m_in.begin() + y);
         m_interface->m_main_box.remove_child(m_edges[num].m_interface->m_top_edge);
         m_edges_mem[num].set_present(false);
         m_edges.erase(num);
+        nb_arretes--;
     }
     system("cls");
 }
@@ -463,7 +538,6 @@ void Graph::modification(int i)
     std::vector<int> x;
     if(m_vertices_mem[i].get_present())
     {
-retour:
         for(auto elem : m_edges)
         {
 
@@ -472,7 +546,6 @@ retour:
                 m_interface->m_main_box.remove_child(elem.second.m_interface->m_top_edge);
                 m_edges_mem[elem.first].set_present(false);
                 m_edges.erase(elem.first);
-                goto retour;
             }
         }
         m_interface->m_main_box.remove_child(m_vertices[i].m_interface->m_top_box);
@@ -503,64 +576,120 @@ void Graph::fort_connexe()
 {
     std::vector<int> liste;
     std::vector<std::vector<int>> mat;
+    Vertex v;
+    bool verif;
     for(auto elem : m_vertices)
     {
-        for(auto elem1 : m_edges)
-            if(elem1.second.get_marqued())
-                elem1.second.set_marqued(false);
-        for(auto elem1 : m_vertices)
-            if(elem1.second.get_marqued())
-                elem1.second.set_marqued(false);
-
-        v = elem.second;
-retour2:
-        for(auto arrete : v.m_out)
+        v = m_vertices[elem.first];
+        for(auto som : m_vertices)
+            m_vertices[som.first].m_marqued = false;
+        retour:
+            liste.push_back(v.m_idx);
+            retour2:
+            verif = false;
+        for(auto conn : v.m_out)
         {
-            if(m_edges[arrete].m_to == elem.first)
+            if(conn == elem.first)
             {
-                liste.push_back(arrete);
+                liste.push_back(elem.first);
+                m_vertices[elem.first].m_marqued = true;
                 break;
             }
-            else if(m_edges[arrete].m_from == v.get_idx() && !m_vertices[m_edges[arrete].m_to].get_marqued())
+            else if(!m_vertices[conn].m_marqued)
             {
-                v = m_vertices[m_edges[arrete].m_to];
-                m_edges[arrete].set_marqued(true);
-                liste.push_back(arrete);
-                goto retour2;
+                v = m_vertices[conn];
+                m_vertices[conn].m_marqued = true;
+                goto retour;
             }
-            else if(v.m_out.empty())
-            {
-                m_vertices[v.get_idx()].set_marqued(true);
-                v = m_vertices[m_edges[arrete].m_from];
-                liste.erase(liste.end());
-                for(auto arretes : m_edges)
-                    if(arretes.second.m_to == v.get_idx())
-                        arretes.second.set_marqued(true);
-                goto retour2;
-            }
-
         }
-
-        if(m_edges[liste.back()].m_to == elem.first)
+            if(v.m_out.empty() && liste.back() != elem.first)
+                verif = true;
+        if(verif)
         {
-            mat.push_back(liste);
+            liste.pop_back();
+            if(liste.empty())
+                goto next;
+            v = m_vertices[liste.back()];
+            goto retour2;
         }
+        if(liste.back() == elem.first && liste.size() != 1)
+            mat.push_back(liste);
+        next:
+        liste.erase(liste.begin(), liste.end());
+
     }
-    for(auto elem : m_edges)
-        elem.second.m_interface->m_top_edge.set_color(GRISSOMBRE);
     if(!mat.empty())
     {
-        for(auto elem1 : mat)
+        for(auto elem : m_edges)
         {
-            liste = elem1;
-            for(auto elem2 : liste)
-                m_edges[elem2].m_interface->m_top_edge.set_color(ROUGE);
+            m_edges[elem.first].m_interface->m_top_edge.set_color(GRISSOMBRE);
+        }
+        for(auto elem : mat)
+        {
+            liste = elem;
+            for(unsigned int i=0; i < liste.size()-1; i++)
+            {
+                for(auto arete : m_edges)
+                {
+                    if(arete.second.m_from == liste[i] && arete.second.m_to == liste[i+1])
+                        m_edges[arete.first].m_interface->m_top_edge.set_color(ROUGE);
+                }
+            }
         }
     }
 }
 
+void Graph::graphic()
+{
+    BITMAP *graphic;
+    graphic = create_bitmap( 1024, 768);
+    int x1, x2, y1, y2;
+    x1=0;
+    x2=10;
+    y1=0;
+    y2=10;
+    clear_to_color(graphic, NOIR);
+    for (auto elem : m_vertices)
+        {
+           rectfill(graphic, x1,  y1, x2, y2, elem.second.m_couleur);
+           for(auto lettre : elem.second.m_nom)
+           {
+               textprintf_ex(graphic, font , x2+3, y1, BLANC, NOIR, "%c",lettre);
+               x2+=7;
+           }
+           x2 = 10;
+           y1=y1+10;
+           y2=y2+10;
+        }
+        line(graphic, 230, 50, 230, 650, BLANC);
+        line(graphic, 230, 650, 850, 650, BLANC);
+    while (!key[KEY_SPACE])
+    {
+        for (auto elem : m_vertices)
+        {
+
+
+        if(!elem.second.m_valeurs.empty())
+        {
+            circlefill(graphic, 230, 650-elem.second.m_valeurs[0]*5,5,elem.second.m_couleur);
+        for (unsigned int i=0;i<elem.second.m_valeurs.size()-1;i++)
+        {
+            if(elem.second.m_valeurs[i+1] != 0 || elem.second.m_valeurs[i] != 0)
+            {
+                line(graphic, 20*i+230, 650-elem.second.m_valeurs[i]*5, 20*(i+1)+230, 650-elem.second.m_valeurs[i+1]*5, elem.second.m_couleur);
+                circlefill(graphic, 20*(i+1)+230, 650-elem.second.m_valeurs[i+1]*5,5,elem.second.m_couleur);
+            }
+        }
+        }
+        }
+        blit(graphic, screen, 0, 0, 0, 0, 1024, 768);
+        evol_pop();
+        rest(500);
+    }
+}
+
 /// Aide � l'ajout de sommets interfac�s
-void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name, bool presence, int pic_idx)
+void Graph::add_interfaced_vertex(int idx, double value, int x, int y,double r, std::string pic_name, bool presence, int pic_idx)
 {
     if ( m_vertices.find(idx)!=m_vertices.end() )
     {
@@ -578,31 +707,96 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
         m_vertices[idx] = Vertex(value, vi);
         m_vertices[idx].m_img = pic_name;
         m_vertices[idx].m_nom = m_vertices[idx].m_img;
+        m_vertices[idx].m_idx = idx;
         for(int i = 1; i <= 4; i++)
             m_vertices[idx].m_nom[m_vertices[idx].m_nom.size()-i] = ' ';
-        m_vertices_mem[idx] = m_vertices[idx];
+        if(idx == 1)
+            m_vertices[idx].m_couleur=GRIS;
+        else if(idx == 2)
+            m_vertices[idx].m_couleur=BLANC;
+        else if(idx == 3)
+            m_vertices[idx].m_couleur=FUCHSIA;
+        else if(idx == 4)
+            m_vertices[idx].m_couleur=ROSE;
+        else if(idx == 5)
+            m_vertices[idx].m_couleur=VIOLET;
+        else if(idx == 6)
+            m_vertices[idx].m_couleur=VERTCLAIR;
+        else if(idx == 7)
+            m_vertices[idx].m_couleur=KAKI;
+        else if(idx == 8)
+            m_vertices[idx].m_couleur=CYAN;
+        else if(idx == 9)
+            m_vertices[idx].m_couleur=BLEU;
+        else if(idx == 10)
+            m_vertices[idx].m_couleur=ROUGE;
+        else if(idx == 11)
+            m_vertices[idx].m_couleur=ROUGECLAIR;
+        else if(idx == 12)
+            m_vertices[idx].m_couleur=ORANGE;
+        else if(idx == 13)
+            m_vertices[idx].m_couleur=JAUNE;
+        else if(idx == 14)
+            m_vertices[idx].m_couleur=JAUNECLAIR;
+        else if(idx == 15)
+            m_vertices[idx].m_couleur=SABLE;
+        m_vertices[idx].m_rythm=r;
+    m_vertices_mem[idx] = m_vertices[idx];
     }
     else
     {
         m_vertices_mem[idx] = Vertex(value, vi);
         m_vertices_mem[idx].m_img = pic_name;
         m_vertices_mem[idx].m_nom = m_vertices_mem[idx].m_img;
+        m_vertices_mem[idx].m_idx = idx;
         for(int i = 1; i <= 4; i++)
             m_vertices_mem[idx].m_nom[m_vertices_mem[idx].m_nom.size()-i] = ' ';
+        if(idx == 0)
+            m_vertices_mem[idx].m_couleur=SABLE;
+        else if(idx == 1)
+            m_vertices_mem[idx].m_couleur=GRIS;
+        else if(idx == 2)
+            m_vertices_mem[idx].m_couleur=BLANC;
+        else if(idx == 3)
+            m_vertices_mem[idx].m_couleur=FUCHSIA;
+        else if(idx == 4)
+            m_vertices_mem[idx].m_couleur=ROSE;
+        else if(idx == 5)
+            m_vertices_mem[idx].m_couleur=VIOLET;
+        else if(idx == 6)
+            m_vertices_mem[idx].m_couleur=VERTCLAIR;
+        else if(idx == 7)
+            m_vertices_mem[idx].m_couleur=KAKI;
+        else if(idx == 8)
+            m_vertices_mem[idx].m_couleur=CYAN;
+        else if(idx == 9)
+            m_vertices_mem[idx].m_couleur=BLEU;
+        else if(idx == 10)
+            m_vertices_mem[idx].m_couleur=ROUGE;
+        else if(idx == 11)
+            m_vertices_mem[idx].m_couleur=ROUGECLAIR;
+        else if(idx == 12)
+            m_vertices_mem[idx].m_couleur=ORANGE;
+        else if(idx == 13)
+            m_vertices_mem[idx].m_couleur=JAUNE;
+        else if(idx == 14)
+            m_vertices_mem[idx].m_couleur=JAUNECLAIR;
+        m_vertices_mem[idx].m_rythm=r;
     }
     m_vertices_mem[idx].set_present(presence);
+
     m_interface->m_noms[idx] = new grman::WidgetText(m_vertices_mem[idx].m_nom);
     m_interface->m_buton_box[idx] = new grman::WidgetButton;
 
     m_interface->m_tool_box.add_child(*m_interface->m_noms[idx]);
-    m_interface->m_noms[idx]->set_dim(75-24,20);
-    m_interface->m_noms[idx]->set_pos(32,26*idx);
+    m_interface->m_noms[idx]->set_dim(75-24,10);
+    m_interface->m_noms[idx]->set_pos(32,14*idx+2);
     if(idx  == 0)
-        m_interface->m_noms[idx]->set_pos(32,6);
+        m_interface->m_noms[idx]->set_pos(32,0);
     m_interface->m_noms[idx]->set_bg_color(BLANCBLEU);
     m_interface->m_tool_box.add_child(*m_interface->m_buton_box[idx]);
-    m_interface->m_buton_box[idx]->set_dim(20,20);
-    m_interface->m_buton_box[idx]->set_pos(1,24*idx);
+    m_interface->m_buton_box[idx]->set_dim(20,10);
+    m_interface->m_buton_box[idx]->set_pos(1,14*idx);
     if(presence)
         m_interface->m_buton_box[idx]->set_bg_color(VERT);
     else
@@ -610,6 +804,8 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
 
 
 }
+
+
 
 /// Aide � l'ajout d'arcs interfac�s
 void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weight, bool presence)
@@ -634,8 +830,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         m_edges[idx].m_from = id_vert1;
         m_edges[idx].m_to = id_vert2;
         m_edges[idx].set_idx(idx);
-        m_vertices[id_vert1].m_out.push_back(id_vert2);
-        m_vertices[id_vert2].m_in.push_back(id_vert1);
+        m_vertices[id_vert1].m_in.push_back(id_vert2);
+        m_vertices[id_vert2].m_out.push_back(id_vert1);
         m_vertices[id_vert1].set_idx(id_vert1);
         m_vertices[id_vert2].set_idx(id_vert2);
         m_edges_mem[idx] = m_edges[idx];
@@ -648,8 +844,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
         m_edges_mem[idx].m_from = id_vert1;
         m_edges_mem[idx].m_to = id_vert2;
         m_edges_mem[idx].set_idx(idx);
-        m_vertices_mem[id_vert1].m_out.push_back(idx);
-        m_vertices_mem[id_vert2].m_in.push_back(idx);
+        m_vertices_mem[id_vert1].m_out.push_back(id_vert2);
+        m_vertices_mem[id_vert2].m_in.push_back(id_vert1);
         m_vertices_mem[id_vert1].set_idx(id_vert1);
         m_vertices_mem[id_vert2].set_idx(id_vert2);
     }

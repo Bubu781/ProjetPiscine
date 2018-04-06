@@ -130,10 +130,14 @@ void set_pictures_path(std::string path_name)
     g_pic_path = path_name;
 }
 
-void mettre_a_jour()
+void mettre_a_jour(bool simu)
 {
     buf_afficher_page();
-    rest(TEMPO_MAJ);
+    if(!simu)
+        rest(TEMPO_MAJ);
+    else
+        rest(500);
+
 
     rafraichir_clavier_souris();
     buf_effacer_page();

@@ -83,7 +83,7 @@ void show_picture(BITMAP *dest, std::string file_name, int x, int y, unsigned id
 void set_pictures_path(std::string path_name);
 
 /// A appeler une fois en fin de boucle de jeu
-void mettre_a_jour();
+void mettre_a_jour(bool simu);
 
 /// Lancement et fermeture services Allegro
 
