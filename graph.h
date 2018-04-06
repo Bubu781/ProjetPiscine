@@ -138,8 +138,10 @@ class Vertex
     private :
         /// liste des indices des arcs arrivant au sommet : acc�s aux pr�d�cesseurs
         std::vector<int> m_in;
+        std::vector<double> m_valeurs;
         std::string m_nom;
         std::string m_img;
+        int m_couleur;
         int m_idx;
         double m_rythm=1.5; ///Rythme de croissance
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
@@ -315,6 +317,12 @@ class GraphInterface
         grman::WidgetButton m_mod_edge;
         grman::WidgetText m_txt_mod_edge;
 
+        grman::WidgetButton m_grapique;
+        grman::WidgetText m_txt_grapique;
+
+        grman::WidgetButton m_ft_connexe;
+        grman::WidgetText m_txt_ft_connexe;
+
         // A compl�ter �ventuellement par des widgets de d�coration ou
         // d'�dition (boutons ajouter/enlever ...)
 
@@ -368,6 +376,7 @@ class Graph
         void modification(int i);
         void fort_connexe();
         void evol_pop();
+        void graphic();
 
          bool get_simu() {return simulation;}
         bool get_used() {return m_used;}
