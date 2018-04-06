@@ -143,7 +143,7 @@ class Vertex
         std::string m_img;
         int m_couleur;
         int m_idx;
-        double m_rythm=1.5; ///Rythme de croissance
+        double m_rythm; ///Rythme de croissance
         /// liste des indices des arcs partant du sommet : acc�s aux successeurs
         std::vector<int> m_out;
         bool m_marqued;
@@ -349,7 +349,7 @@ class Graph
 
         /// le POINTEUR sur l'interface associ�e, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
-        bool simulation = false;
+        bool simulation = true;
         int nb_sommet;
         int nb_arretes;
         bool m_used = false;
@@ -361,7 +361,7 @@ class Graph
         Graph (GraphInterface *interface=nullptr) :
             m_interface(interface)  {  }
                                     //indice    valeur    x       y        image
-        void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", bool presence=false, int pic_idx=0 );
+        void add_interfaced_vertex(int idx, double value, int x, int y,double r, std::string pic_name="", bool presence=false, int pic_idx=0 );
                                 //indice     sommet1    sommet2     poids
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0, bool presence=false);
 

@@ -194,7 +194,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_tool_box.add_child(m_return);
     m_return.set_dim(75,30);
     m_return.set_pos(1,650);
-    m_return.set_bg_color(BLEU);
+    m_return.set_bg_color(makecol(0,128,255));
 
     m_return.add_child(m_txt_return);
     m_txt_return.set_dim(75,10);
@@ -205,7 +205,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_tool_box.add_child(m_save);
     m_save.set_dim(75,30);
     m_save.set_pos(1,615);
-    m_save.set_bg_color(VERT);
+    m_save.set_bg_color(makecol(140,0,140));
 
     m_save.add_child(m_txt_save);
     m_txt_save.set_dim(75,10);
@@ -216,7 +216,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_tool_box.add_child(m_disconnect);
     m_disconnect.set_dim(75,30);
     m_disconnect.set_pos(1,580);
-    m_disconnect.set_bg_color(MARRON);
+    m_disconnect.set_bg_color(makecol(225,32,167));
 
     m_disconnect.add_child(m_txt_disconnect);
     m_txt_disconnect.set_dim(75,10);
@@ -227,7 +227,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_tool_box.add_child(m_simulation);
     m_simulation.set_dim(75,30);
     m_simulation.set_pos(1,545);
-    m_simulation.set_bg_color(ROUGE);
+    m_simulation.set_bg_color(makecol(248,63,63));
 
     m_simulation.add_child(m_txt_simulation);
     m_txt_simulation.set_dim(75,10);
@@ -238,7 +238,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_tool_box.add_child(m_mod_edge);
     m_mod_edge.set_dim(75,30);
     m_mod_edge.set_pos(1,510);
-    m_mod_edge.set_bg_color(MARRON);
+    m_mod_edge.set_bg_color(makecol(77,185,185));
 
     m_mod_edge.add_child(m_txt_mod_edge);
     m_txt_mod_edge.set_dim(75,10);
@@ -260,7 +260,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h, std::string nom)
     m_tool_box.add_child(m_ft_connexe);
     m_ft_connexe.set_dim(75,30);
     m_ft_connexe.set_pos(1,440);
-    m_ft_connexe.set_bg_color(MARRON);
+    m_ft_connexe.set_bg_color(makecol(249,174,62));
 
     m_ft_connexe.add_child(m_txt_ft_connexe);
     m_txt_ft_connexe.set_dim(75,10);
@@ -280,6 +280,7 @@ void Graph::load(std::string fic)
     std::ifstream fichier(fic, std::ios::in);
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600, fic);
     int indice, x, y, s1, s2, nb;
+    double r;
     double poids;
     bool presence;
     m_nom = fic;
@@ -294,10 +295,11 @@ void Graph::load(std::string fic)
             fichier >> poids;
             fichier >> x;
             fichier >> y;
+            fichier >> r;
             fichier >> presence;
             fichier.ignore();
             getline(fichier, img, '\n');
-            add_interfaced_vertex(indice, poids, x, y, img, presence, 1);
+            add_interfaced_vertex(indice, poids, x, y,r, img, presence, 1);
         }
         fichier >> nb;
         nb_arretes = nb;
@@ -419,7 +421,7 @@ void Graph::evol_pop()
         {
             if(m_edges[arete.first].m_to==elem.first && m_vertices[arete.second.m_from].m_value > 0)
             {
-                coef = 1+ m_edges[arete.first].m_weight/100;
+                coef =  m_edges[arete.first].m_weight/100;
                 N = m_vertices[arete.second.m_from].m_value;
                 K+=coef*N;
             }
@@ -427,7 +429,7 @@ void Graph::evol_pop()
             {
                 if(m_vertices[arete.second.m_to].m_nom != "debrits    " && m_vertices[arete.second.m_to].m_nom != "sels    ")
                 {
-                    coef = 1+ m_edges[arete.first].m_weight/100;
+                    coef =  m_edges[arete.first].m_weight;
                     N = m_vertices[arete.second.m_to].m_value;
                     liste.push_back(coef*N);
                 }
@@ -687,7 +689,7 @@ void Graph::graphic()
 }
 
 /// Aide � l'ajout de sommets interfac�s
-void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name, bool presence, int pic_idx)
+void Graph::add_interfaced_vertex(int idx, double value, int x, int y,double r, std::string pic_name, bool presence, int pic_idx)
 {
     if ( m_vertices.find(idx)!=m_vertices.end() )
     {
@@ -738,6 +740,7 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
             m_vertices[idx].m_couleur=JAUNECLAIR;
         else if(idx == 15)
             m_vertices[idx].m_couleur=SABLE;
+        m_vertices[idx].m_rythm=r;
     m_vertices_mem[idx] = m_vertices[idx];
     }
     else
@@ -778,6 +781,7 @@ void Graph::add_interfaced_vertex(int idx, double value, int x, int y, std::stri
             m_vertices_mem[idx].m_couleur=JAUNE;
         else if(idx == 14)
             m_vertices_mem[idx].m_couleur=JAUNECLAIR;
+        m_vertices_mem[idx].m_rythm=r;
     }
     m_vertices_mem[idx].set_present(presence);
 
